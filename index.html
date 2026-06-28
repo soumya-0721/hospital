@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AyurVena — Premium Healthcare</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+</head>
+<body>
+
+  <!-- ========== GLOBAL BACKGROUND SPHERES ========== -->
+  <div class="bg-gradient-sphere">
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+    <div class="sphere"></div>
+  </div>
+
+  <!-- ========== LOADER ========== -->
+  <div class="loader" id="loader">
+    <div class="loader-content">
+      <div class="loader-heart">
+        <i class="fas fa-heartbeat"></i>
+      </div>
+      <div class="loader-cross">
+        <i class="fas fa-plus"></i>
+      </div>
+      <div class="loader-text">AyurVena</div>
+      <div class="loader-bar">
+        <div class="loader-bar-fill"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ========== CUSTOM CURSOR ========== -->
+  <div class="cursor-dot" id="cursorDot"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <!-- ========== SCROLL PROGRESS ========== -->
+  <div class="scroll-progress" id="scrollProgress"></div>
+
+  <!-- ========== BACK TO TOP ========== -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- ========== PARTICLES CANVAS ========== -->
+  <canvas id="particlesCanvas"></canvas>
+
+  <!-- ========== NAVIGATION ========== -->
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <a href="#" class="nav-logo">
+        <span class="nav-logo-icon">🏥</span>
+        <span class="nav-logo-text">AyurVena</span>
+      </a>
+      <ul class="nav-links" id="navLinks">
+        <li><a href="#hero" class="nav-link active">Home</a></li>
+        <li><a href="#doctors" class="nav-link">Doctors</a></li>
+        <li><a href="#departments" class="nav-link">Departments</a></li>
+        <li><a href="#medicines" class="nav-link">Medicines</a></li>
+        <li><a href="#appointment" class="nav-link">Appointments</a></li>
+        <li><a href="#packages" class="nav-link">Health Packages</a></li>
+        <li><a href="#laboratory" class="nav-link">Laboratory</a></li>
+        <li><a href="#emergency" class="nav-link">Emergency</a></li>
+        <li><a href="#about" class="nav-link">About</a></li>
+        <li><a href="#contact" class="nav-link">Contact</a></li>
+      </ul>
+      <div class="nav-actions">
+        <button class="nav-icon-btn" aria-label="Search"><i class="fas fa-search"></i></button>
+        <button class="nav-icon-btn" aria-label="Notifications"><i class="fas fa-bell"></i></button>
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+          <i class="fas fa-moon"></i>
+        </button>
+        <button class="btn btn-primary nav-cta magnetic-btn" data-strength="30">Book Appointment</button>
+        <button class="hamburger" id="hamburger" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ========== HERO SECTION ========== -->
+  <section class="hero section" id="hero">
+    <div class="hero-bg-shapes">
+      <div class="hero-blob blob-1"></div>
+      <div class="hero-blob blob-2"></div>
+      <div class="hero-blob blob-3"></div>
+    </div>
+    <div class="container hero-container">
+      <div class="hero-left fade-in">
+        <span class="hero-badge">✨ AI-Powered Healthcare</span>
+        <h1 class="hero-title">
+          Your Health,<br />
+          <span class="gradient-text">Our Future.</span>
+        </h1>
+        <p class="hero-subtitle">
+          Book appointments instantly, consult specialists, manage prescriptions,
+          explore departments, and experience next-generation healthcare.
+        </p>
+        <div class="hero-buttons">
+          <button class="btn btn-primary btn-lg magnetic-btn ripple-btn" data-strength="40">
+            <i class="fas fa-calendar-check"></i> Book Appointment
+          </button>
+          <button class="btn btn-outline btn-lg magnetic-btn ripple-btn" data-strength="30">
+            <i class="fas fa-user-md"></i> Explore Doctors
+          </button>
+        </div>
+        <div class="hero-stats-mini">
+          <div class="hero-stat-item">
+            <span class="hero-stat-num">10K+</span>
+            <span class="hero-stat-label">Happy Patients</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-num">200+</span>
+            <span class="hero-stat-label">Expert Doctors</span>
+          </div>
+          <div class="hero-stat-item">
+            <span class="hero-stat-num">98%</span>
+            <span class="hero-stat-label">Satisfaction</span>
+          </div>
+        </div>
+      </div>
+      <div class="hero-right fade-in">
+        <div class="hero-illustration">
+          <img src="https://img.freepik.com/free-vector/medical-technology-science-healthcare-concept_53876-112523.jpg?w=740" alt="Healthcare illustration" />
+          <div class="floating-icon fi-1"><i class="fas fa-stethoscope"></i></div>
+          <div class="floating-icon fi-2"><i class="fas fa-heart"></i></div>
+          <div class="floating-icon fi-3"><i class="fas fa-capsules"></i></div>
+          <div class="floating-icon fi-4"><i class="fas fa-dna"></i></div>
+          <div class="floating-icon fi-5"><i class="fas fa-plus"></i></div>
+        </div>
+        <div class="heartbeat-line" id="heartbeatLine">
+          <svg viewBox="0 0 200 50" class="heartbeat-svg">
+            <polyline points="0,25 20,25 30,10 40,40 50,25 70,25 80,10 90,40 100,25 120,25 130,10 140,40 150,25 170,25 180,10 190,40 200,25"
+              fill="none" stroke="#2563EB" stroke-width="2" class="heartbeat-path" />
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== LIVE STATS ========== -->
+  <section class="stats section" id="stats">
+    <div class="container stats-container">
+      <div class="stat-card fade-in" data-count="250">
+        <div class="stat-icon"><i class="fas fa-user-md"></i></div>
+        <div class="stat-number"><span class="counter" data-target="250">0</span>+</div>
+        <div class="stat-label">Expert Doctors</div>
+      </div>
+      <div class="stat-card fade-in" data-count="15000">
+        <div class="stat-icon"><i class="fas fa-users"></i></div>
+        <div class="stat-number"><span class="counter" data-target="15000">0</span>+</div>
+        <div class="stat-label">Happy Patients</div>
+      </div>
+      <div class="stat-card fade-in" data-count="25">
+        <div class="stat-icon"><i class="fas fa-building"></i></div>
+        <div class="stat-number"><span class="counter" data-target="25">0</span>+</div>
+        <div class="stat-label">Departments</div>
+      </div>
+      <div class="stat-card fade-in" data-count="500">
+        <div class="stat-icon"><i class="fas fa-bed"></i></div>
+        <div class="stat-number"><span class="counter" data-target="500">0</span>+</div>
+        <div class="stat-label">Hospital Beds</div>
+      </div>
+      <div class="stat-card fade-in" data-count="8000">
+        <div class="stat-icon"><i class="fas fa-procedures"></i></div>
+        <div class="stat-number"><span class="counter" data-target="8000">0</span>+</div>
+        <div class="stat-label">Surgeries</div>
+      </div>
+      <div class="stat-card fade-in" data-count="12">
+        <div class="stat-icon"><i class="fas fa-flask"></i></div>
+        <div class="stat-number"><span class="counter" data-target="12">0</span>+</div>
+        <div class="stat-label">Laboratories</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FEATURES ========== -->
+  <section class="features section" id="features">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Our Services</span>
+        <h2 class="section-title">Comprehensive Healthcare<br /><span class="gradient-text">At Your Fingertips</span></h2>
+        <p class="section-desc">Experience seamless healthcare with our cutting-edge digital platform</p>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card tilt-card fade-in" data-tilt>
+          <div class="feature-icon"><i class="fas fa-calendar-check"></i></div>
+          <h3>Online OP Booking</h3>
+          <p>Book your outpatient appointments instantly with our smart scheduling system.</p>
+          <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="feature-card tilt-card fade-in" data-tilt>
+          <div class="feature-icon"><i class="fas fa-user-md"></i></div>
+          <h3>Find Doctors</h3>
+          <p>Search and connect with top specialists across all medical departments.</p>
+          <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="feature-card tilt-card fade-in" data-tilt>
+          <div class="feature-icon"><i class="fas fa-heartbeat"></i></div>
+          <h3>Health Packages</h3>
+          <p>Comprehensive health checkup packages tailored to your needs.</p>
+          <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="feature-card tilt-card fade-in" data-tilt>
+          <div class="feature-icon"><i class="fas fa-prescription-bottle"></i></div>
+          <h3>Medicine Store</h3>
+          <p>Order medicines online with fast home delivery and prescription management.</p>
+          <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="feature-card tilt-card fade-in" data-tilt>
+          <div class="feature-icon"><i class="fas fa-ambulance"></i></div>
+          <h3>Emergency Care</h3>
+          <p>24/7 emergency services with rapid response and critical care units.</p>
+          <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+        <div class="feature-card tilt-card fade-in" data-tilt>
+          <div class="feature-icon"><i class="fas fa-flask"></i></div>
+          <h3>Lab Reports</h3>
+          <p>Access your diagnostic reports online with detailed analysis and insights.</p>
+          <a href="#" class="feature-link">Learn More <i class="fas fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DOCTORS SECTION ========== -->
+  <section class="doctors section" id="doctors">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Our Experts</span>
+        <h2 class="section-title">Meet Our<br /><span class="gradient-text">Specialist Doctors</span></h2>
+        <p class="section-desc">World-class medical professionals dedicated to your health</p>
+      </div>
+      <div class="doctor-filters fade-in">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="Cardiologist">Cardiologist</button>
+        <button class="filter-btn" data-filter="Orthopedic">Orthopedic</button>
+        <button class="filter-btn" data-filter="Neurologist">Neurologist</button>
+        <button class="filter-btn" data-filter="Dentist">Dentist</button>
+        <button class="filter-btn" data-filter="Pediatrician">Pediatrician</button>
+        <button class="filter-btn" data-filter="Dermatologist">Dermatologist</button>
+        <button class="filter-btn" data-filter="Gynecologist">Gynecologist</button>
+      </div>
+      <div class="doctors-grid" id="doctorsGrid"></div>
+    </div>
+  </section>
+
+  <!-- ========== DEPARTMENTS ========== -->
+  <section class="departments section" id="departments">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Departments</span>
+        <h2 class="section-title">Our Medical<br /><span class="gradient-text">Departments</span></h2>
+        <p class="section-desc">State-of-the-art facilities across all major specialties</p>
+      </div>
+      <div class="departments-grid">
+        <div class="dept-card flip-card fade-in" data-tilt>
+          <div class="dept-inner">
+            <div class="dept-front">
+              <div class="dept-icon"><i class="fas fa-heart"></i></div>
+              <h3>Cardiology</h3>
+              <p>Heart & vascular care</p>
+            </div>
+            <div class="dept-back">
+              <h3>Cardiology</h3>
+              <p>Advanced cardiac care with modern cath labs and experienced cardiologists.</p>
+              <span class="dept-docs">12 Specialists</span>
+            </div>
+          </div>
+        </div>
+        <div class="dept-card flip-card fade-in" data-tilt>
+          <div class="dept-inner">
+            <div class="dept-front">
+              <div class="dept-icon"><i class="fas fa-brain"></i></div>
+              <h3>Neurology</h3>
+              <p>Brain & nerve care</p>
+            </div>
+            <div class="dept-back">
+              <h3>Neurology</h3>
+              <p>Comprehensive neurological care with advanced diagnostic equipment.</p>
+              <span class="dept-docs">8 Specialists</span>
+            </div>
+          </div>
+        </div>
+        <div class="dept-card flip-card fade-in" data-tilt>
+          <div class="dept-inner">
+            <div class="dept-front">
+              <div class="dept-icon"><i class="fas fa-bone"></i></div>
+              <h3>Orthopedics</h3>
+              <p>Bone & joint care</p>
+            </div>
+            <div class="dept-back">
+              <h3>Orthopedics</h3>
+              <p>Expert orthopedic surgery and rehabilitation services.</p>
+              <span class="dept-docs">10 Specialists</span>
+            </div>
+          </div>
+        </div>
+        <div class="dept-card flip-card fade-in" data-tilt>
+          <div class="dept-inner">
+            <div class="dept-front">
+              <div class="dept-icon"><i class="fas fa-ear"></i></div>
+              <h3>ENT</h3>
+              <p>Ear, nose & throat</p>
+            </div>
+            <div class="dept-back">
+              <h3>ENT</h3>
+              <p>Complete ENT care with advanced surgical techniques.</p>
+              <span class="dept-docs">6 Specialists</span>
+            </div>
+          </div>
+        </div>
+        <div class="dept-card flip-card fade-in" data-tilt>
+          <div class="dept-inner">
+            <div class="dept-front">
+              <div class="dept-icon"><i class="fas fa-child"></i></div>
+              <h3>Pediatrics</h3>
+              <p>Child healthcare</p>
+            </div>
+            <div class="dept-back">
+              <h3>Pediatrics</h3>
+              <p>Child-friendly care with expert pediatricians and modern facilities.</p>
+              <span class="dept-docs">7 Specialists</span>
+            </div>
+          </div>
+        </div>
+        <div class="dept-card flip-card fade-in" data-tilt>
+          <div class="dept-inner">
+            <div class="dept-front">
+              <div class="dept-icon"><i class="fas fa-x-ray"></i></div>
+              <h3>Radiology</h3>
+              <p>Diagnostic imaging</p>
+            </div>
+            <div class="dept-back">
+              <h3>Radiology</h3>
+              <p>State-of-the-art imaging with MRI, CT, X-ray and ultrasound.</p>
+              <span class="dept-docs">5 Specialists</span>
+            </div>
+          </div>
+        </div>
+        <div class="dept-card flip-card fade-in" data-tilt>
+          <div class="dept-inner">
+            <div class="dept-front">
+              <div class="dept-icon"><i class="fas fa-ambulance"></i></div>
+              <h3>Emergency</h3>
+              <p>24/7 emergency care</p>
+            </div>
+            <div class="dept-back">
+              <h3>Emergency</h3>
+              <p>Round-the-clock emergency services with rapid response teams.</p>
+              <span class="dept-docs">15 Specialists</span>
+            </div>
+          </div>
+        </div>
+        <div class="dept-card flip-card fade-in" data-tilt>
+          <div class="dept-inner">
+            <div class="dept-front">
+              <div class="dept-icon"><i class="fas fa-hospital"></i></div>
+              <h3>ICU</h3>
+              <p>Intensive care</p>
+            </div>
+            <div class="dept-back">
+              <h3>ICU</h3>
+              <p>Advanced intensive care units with cutting-edge life support systems.</p>
+              <span class="dept-docs">20 Specialists</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== MEDICINE SECTION ========== -->
+  <section class="medicines section" id="medicines">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Pharmacy</span>
+        <h2 class="section-title">Our Medicine<br /><span class="gradient-text">Store</span></h2>
+        <p class="section-desc">Quality medicines delivered to your doorstep</p>
+      </div>
+      <div class="medicines-grid" id="medicinesGrid"></div>
+    </div>
+  </section>
+
+  <!-- ========== MEDICINE MODAL ========== -->
+  <div class="modal-overlay" id="medicineModal">
+    <div class="modal-content glass">
+      <button class="modal-close" id="modalClose"><i class="fas fa-times"></i></button>
+      <div class="modal-body" id="modalBody"></div>
+    </div>
+  </div>
+
+  <!-- ========== HEALTH PACKAGES ========== -->
+  <section class="packages section" id="packages">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Health Plans</span>
+        <h2 class="section-title">Our Health<br /><span class="gradient-text">Packages</span></h2>
+        <p class="section-desc">Comprehensive health checkup plans for every need</p>
+      </div>
+      <div class="packages-grid">
+        <div class="package-card fade-in" data-tilt>
+          <div class="package-badge">Popular</div>
+          <div class="package-icon"><i class="fas fa-stethoscope"></i></div>
+          <h3>Basic Checkup</h3>
+          <div class="package-price"><span class="price">₹999</span> <span class="original">₹1,999</span></div>
+          <ul class="package-features">
+            <li><i class="fas fa-check"></i> Complete Blood Count</li>
+            <li><i class="fas fa-check"></i> Blood Sugar Test</li>
+            <li><i class="fas fa-check"></i> Urine Analysis</li>
+            <li><i class="fas fa-check"></i> Chest X-Ray</li>
+            <li><i class="fas fa-check"></i> ECG</li>
+          </ul>
+          <button class="btn btn-primary package-btn magnetic-btn ripple-btn">Book Now</button>
+        </div>
+        <div class="package-card fade-in featured" data-tilt>
+          <div class="package-badge premium">Premium</div>
+          <div class="package-icon"><i class="fas fa-heart"></i></div>
+          <h3>Heart Check</h3>
+          <div class="package-price"><span class="price">₹2,499</span> <span class="original">₹4,999</span></div>
+          <ul class="package-features">
+            <li><i class="fas fa-check"></i> Lipid Profile</li>
+            <li><i class="fas fa-check"></i> Echocardiogram</li>
+            <li><i class="fas fa-check"></i> Stress Test</li>
+            <li><i class="fas fa-check"></i> Cardiac Markers</li>
+            <li><i class="fas fa-check"></i> Cardiologist Consult</li>
+          </ul>
+          <button class="btn btn-primary package-btn magnetic-btn ripple-btn">Book Now</button>
+        </div>
+        <div class="package-card fade-in" data-tilt>
+          <div class="package-icon"><i class="fas fa-female"></i></div>
+          <h3>Women's Health</h3>
+          <div class="package-price"><span class="price">₹1,999</span> <span class="original">₹3,999</span></div>
+          <ul class="package-features">
+            <li><i class="fas fa-check"></i> Mammography</li>
+            <li><i class="fas fa-check"></i> Pap Smear</li>
+            <li><i class="fas fa-check"></i> Thyroid Profile</li>
+            <li><i class="fas fa-check"></i> Bone Density</li>
+            <li><i class="fas fa-check"></i> Gynecologist Consult</li>
+          </ul>
+          <button class="btn btn-primary package-btn magnetic-btn ripple-btn">Book Now</button>
+        </div>
+        <div class="package-card fade-in" data-tilt>
+          <div class="package-icon"><i class="fas fa-dice-d6"></i></div>
+          <h3>Diabetes Check</h3>
+          <div class="package-price"><span class="price">₹1,499</span> <span class="original">₹2,999</span></div>
+          <ul class="package-features">
+            <li><i class="fas fa-check"></i> Fasting Blood Sugar</li>
+            <li><i class="fas fa-check"></i> HbA1c</li>
+            <li><i class="fas fa-check"></i> Kidney Function</li>
+            <li><i class="fas fa-check"></i> Eye Checkup</li>
+            <li><i class="fas fa-check"></i> Diet Consult</li>
+          </ul>
+          <button class="btn btn-primary package-btn magnetic-btn ripple-btn">Book Now</button>
+        </div>
+        <div class="package-card fade-in" data-tilt>
+          <div class="package-icon"><i class="fas fa-user-shield"></i></div>
+          <h3>Senior Citizen</h3>
+          <div class="package-price"><span class="price">₹1,799</span> <span class="original">₹3,499</span></div>
+          <ul class="package-features">
+            <li><i class="fas fa-check"></i> Full Body Checkup</li>
+            <li><i class="fas fa-check"></i> Bone Density</li>
+            <li><i class="fas fa-check"></i> Vision & Hearing</li>
+            <li><i class="fas fa-check"></i> Vitamin Profile</li>
+            <li><i class="fas fa-check"></i> Physician Consult</li>
+          </ul>
+          <button class="btn btn-primary package-btn magnetic-btn ripple-btn">Book Now</button>
+        </div>
+        <div class="package-card fade-in" data-tilt>
+          <div class="package-badge">Best Value</div>
+          <div class="package-icon"><i class="fas fa-crown"></i></div>
+          <h3>Executive Package</h3>
+          <div class="package-price"><span class="price">₹4,999</span> <span class="original">₹9,999</span></div>
+          <ul class="package-features">
+            <li><i class="fas fa-check"></i> Complete Body Checkup</li>
+            <li><i class="fas fa-check"></i> MRI/CT Scan</li>
+            <li><i class="fas fa-check"></i> All Specialists Consult</li>
+            <li><i class="fas fa-check"></i> Stress Management</li>
+            <li><i class="fas fa-check"></i> Wellness Program</li>
+          </ul>
+          <button class="btn btn-primary package-btn magnetic-btn ripple-btn">Book Now</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BOOK APPOINTMENT ========== -->
+  <section class="appointment section" id="appointment">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Book Now</span>
+        <h2 class="section-title">Schedule Your<br /><span class="gradient-text">Appointment</span></h2>
+        <p class="section-desc">Book your visit in seconds — no registration required</p>
+      </div>
+      <div class="appointment-form-container fade-in">
+        <form class="appointment-form" id="appointmentForm">
+          <div class="form-row">
+            <div class="form-group floating">
+              <input type="text" class="form-input" placeholder=" " required />
+              <label class="form-label">Patient Name</label>
+            </div>
+            <div class="form-group floating">
+              <input type="tel" class="form-input" placeholder=" " required />
+              <label class="form-label">Phone Number</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group floating">
+              <select class="form-input form-select" id="deptSelect">
+                <option value="">Select Department</option>
+                <option>Cardiology</option>
+                <option>Neurology</option>
+                <option>Orthopedics</option>
+                <option>ENT</option>
+                <option>Pediatrics</option>
+                <option>Radiology</option>
+                <option>Dermatology</option>
+                <option>Gynecology</option>
+              </select>
+              <label class="form-label">Department</label>
+            </div>
+            <div class="form-group floating">
+              <select class="form-input form-select" id="doctorSelect">
+                <option value="">Select Doctor</option>
+              </select>
+              <label class="form-label">Doctor</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group floating">
+              <input type="date" class="form-input" required />
+              <label class="form-label">Appointment Date</label>
+            </div>
+            <div class="form-group floating">
+              <select class="form-input form-select">
+                <option>09:00 AM - 10:00 AM</option>
+                <option>10:00 AM - 11:00 AM</option>
+                <option>11:00 AM - 12:00 PM</option>
+                <option>02:00 PM - 03:00 PM</option>
+                <option>03:00 PM - 04:00 PM</option>
+                <option>04:00 PM - 05:00 PM</option>
+                <option>05:00 PM - 06:00 PM</option>
+              </select>
+              <label class="form-label">Time Slot</label>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group floating">
+              <select class="form-input form-select">
+                <option>Male</option>
+                <option>Female</option>
+                <option>Other</option>
+              </select>
+              <label class="form-label">Gender</label>
+            </div>
+            <div class="form-group floating">
+              <input type="number" class="form-input" placeholder=" " min="1" max="150" />
+              <label class="form-label">Age</label>
+            </div>
+          </div>
+          <div class="form-group floating">
+            <textarea class="form-input form-textarea" rows="3" placeholder=" "></textarea>
+            <label class="form-label">Describe Your Problem</label>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit ripple-btn magnetic-btn" data-strength="50">
+            <i class="fas fa-paper-plane"></i> Book Appointment
+            <span class="btn-shimmer"></span>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SUCCESS POPUP ========== -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal-content success-content glass">
+      <div class="success-icon"><i class="fas fa-check-circle"></i></div>
+      <h2 class="success-title">Appointment Booked!</h2>
+      <p class="success-msg">Your appointment has been confirmed successfully.<br />We'll send you a reminder before your visit.</p>
+      <button class="btn btn-primary" id="successClose">Great!</button>
+    </div>
+  </div>
+
+  <!-- ========== LABORATORY ========== -->
+  <section class="laboratory section" id="laboratory">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Lab Tests</span>
+        <h2 class="section-title">Our Diagnostic<br /><span class="gradient-text">Laboratory</span></h2>
+        <p class="section-desc">Accurate diagnostics with cutting-edge technology</p>
+      </div>
+      <div class="lab-grid">
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-tint"></i></div>
+          <h3>Blood Test</h3>
+          <p>Complete hematology analysis</p>
+          <span class="lab-price">₹299</span>
+        </div>
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-flask"></i></div>
+          <h3>Sugar Test</h3>
+          <p>Blood glucose monitoring</p>
+          <span class="lab-price">₹149</span>
+        </div>
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-shield-alt"></i></div>
+          <h3>Thyroid</h3>
+          <p>Thyroid function panel</p>
+          <span class="lab-price">₹499</span>
+        </div>
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-droplet"></i></div>
+          <h3>Liver Function</h3>
+          <p>Hepatic panel tests</p>
+          <span class="lab-price">₹399</span>
+        </div>
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-filter"></i></div>
+          <h3>Kidney Function</h3>
+          <p>Renal function tests</p>
+          <span class="lab-price">₹399</span>
+        </div>
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-capsules"></i></div>
+          <h3>Vitamin Profile</h3>
+          <p>Vitamin deficiency check</p>
+          <span class="lab-price">₹899</span>
+        </div>
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-virus"></i></div>
+          <h3>Covid Test</h3>
+          <p>RT-PCR & Rapid Antigen</p>
+          <span class="lab-price">₹499</span>
+        </div>
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-magnet"></i></div>
+          <h3>MRI Scan</h3>
+          <p>Magnetic resonance imaging</p>
+          <span class="lab-price">₹4,999</span>
+        </div>
+        <div class="lab-card fade-in" data-tilt>
+          <div class="lab-icon"><i class="fas fa-circle"></i></div>
+          <h3>CT Scan</h3>
+          <p>Computed tomography</p>
+          <span class="lab-price">₹2,999</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EMERGENCY ========== -->
+  <section class="emergency section" id="emergency">
+    <div class="container">
+      <div class="emergency-content fade-in">
+        <div class="emergency-badge">🚨 24/7 Emergency Services</div>
+        <div class="emergency-ambulance">
+          <i class="fas fa-ambulance ambulance-icon"></i>
+        </div>
+        <h2 class="emergency-title">Medical Emergency?</h2>
+        <p class="emergency-num">📞 108</p>
+        <p class="emergency-desc">Our emergency team is available 24/7. Call us immediately for urgent medical assistance.</p>
+        <div class="emergency-buttons">
+          <a href="tel:108" class="btn btn-emergency btn-lg ripple-btn magnetic-btn" data-strength="40">
+            <i class="fas fa-phone-alt"></i> Call 108 Now
+          </a>
+          <button class="btn btn-outline-light btn-lg ripple-btn magnetic-btn" data-strength="30">
+            <i class="fas fa-location-arrow"></i> Get Directions
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PATIENT REVIEWS ========== -->
+  <section class="reviews section" id="reviews">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Testimonials</span>
+        <h2 class="section-title">What Our Patients<br /><span class="gradient-text">Say About Us</span></h2>
+        <p class="section-desc">Real experiences from real people</p>
+      </div>
+      <div class="reviews-slider fade-in" id="reviewsSlider">
+        <div class="reviews-track" id="reviewsTrack"></div>
+        <div class="reviews-dots" id="reviewsDots"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY ========== -->
+  <section class="gallery section" id="gallery">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">Gallery</span>
+        <h2 class="section-title">Our Hospital<br /><span class="gradient-text">In Pictures</span></h2>
+        <p class="section-desc">A glimpse into our world-class facility</p>
+      </div>
+      <div class="gallery-grid fade-in">
+        <div class="gallery-item gallery-item-tall">
+          <img src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?w=600&q=80" alt="Hospital lobby" />
+          <div class="gallery-overlay"><span>Modern Lobby</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=400&q=80" alt="Operating room" />
+          <div class="gallery-overlay"><span>Operation Theatre</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=400&q=80" alt="Patient room" />
+          <div class="gallery-overlay"><span>Patient Rooms</span></div>
+        </div>
+        <div class="gallery-item gallery-item-wide">
+          <img src="https://images.unsplash.com/photo-1587351021759-3772687fe598?w=600&q=80" alt="Lab equipment" />
+          <div class="gallery-overlay"><span>Diagnostic Lab</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?w=400&q=80" alt="Pharmacy" />
+          <div class="gallery-overlay"><span>Pharmacy</span></div>
+        </div>
+        <div class="gallery-item">
+          <img src="https://images.unsplash.com/photo-1584515933487-779824d29309?w=400&q=80" alt="Waiting area" />
+          <div class="gallery-overlay"><span>Waiting Area</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== GALLERY LIGHTBOX ========== -->
+  <div class="modal-overlay" id="lightboxModal">
+    <div class="lightbox-content">
+      <button class="modal-close lightbox-close"><i class="fas fa-times"></i></button>
+      <img id="lightboxImg" src="" alt="Gallery image" />
+    </div>
+  </div>
+
+  <!-- ========== FAQ ========== -->
+  <section class="faq section" id="faq">
+    <div class="container">
+      <div class="section-header fade-in">
+        <span class="section-badge">FAQ</span>
+        <h2 class="section-title">Frequently Asked<br /><span class="gradient-text">Questions</span></h2>
+        <p class="section-desc">Everything you need to know about our services</p>
+      </div>
+      <div class="faq-list fade-in">
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do I book an appointment?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>You can book an appointment online through our website by filling out the appointment form. You can also call our helpline or visit the hospital directly.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What documents do I need to bring?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Please bring a valid photo ID, previous medical records, and any relevant prescriptions or lab reports.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Do you accept health insurance?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes, we accept all major health insurance plans. Please bring your insurance card and we'll assist you with the claim process.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Can I get my medicines delivered?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Yes! Our online pharmacy offers home delivery for all prescription and over-the-counter medicines within the city.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What are your visiting hours?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Outpatient hours are 8:00 AM to 8:00 PM, Monday to Saturday. Emergency services are available 24/7, including Sundays and holidays.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How do I access my lab reports online?</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+          <div class="faq-answer">
+            <p>Once your tests are completed, you can access your reports through the patient portal. You'll receive a link via SMS and email when your reports are ready.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer" id="contact">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col footer-brand fade-in">
+          <div class="footer-logo">🏥 AyurVena</div>
+          <p>Revolutionizing healthcare with cutting-edge technology and compassionate care. Your health is our future.</p>
+          <div class="footer-social">
+            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" class="social-link" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="social-link" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        <div class="footer-col fade-in">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Our Doctors</a></li>
+            <li><a href="#">Departments</a></li>
+            <li><a href="#">Appointments</a></li>
+            <li><a href="#">Health Packages</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+        <div class="footer-col fade-in">
+          <h4>Departments</h4>
+          <ul>
+            <li><a href="#">Cardiology</a></li>
+            <li><a href="#">Neurology</a></li>
+            <li><a href="#">Orthopedics</a></li>
+            <li><a href="#">Pediatrics</a></li>
+            <li><a href="#">Radiology</a></li>
+            <li><a href="#">Emergency</a></li>
+          </ul>
+        </div>
+        <div class="footer-col fade-in">
+          <h4>Contact Info</h4>
+          <ul class="footer-contact">
+            <li><i class="fas fa-map-marker-alt"></i> 123 Healthcare Ave, Medical District, City</li>
+            <li><i class="fas fa-phone-alt"></i> +91 1800-123-4567</li>
+            <li><i class="fas fa-envelope"></i> care@ayurvena.com</li>
+            <li><i class="fas fa-clock"></i> Mon-Sat: 8AM - 8PM</li>
+            <li><i class="fas fa-clock"></i> Emergency: 24/7</li>
+          </ul>
+        </div>
+        <div class="footer-col footer-newsletter fade-in">
+          <h4>Newsletter</h4>
+          <p>Subscribe for health tips and updates</p>
+          <form class="newsletter-form">
+            <input type="email" placeholder="Your email address" required />
+            <button type="submit" class="btn btn-primary"><i class="fas fa-paper-plane"></i></button>
+          </form>
+          <div class="footer-map">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3806.4!2d78.4!3d17.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTfCsDI0JzAwLjAiTiA3OMKwMjQnMDAuMCJF!5e0!3m2!1sen!2sin!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Hospital Location"></iframe>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 AyurVena Healthcare. All rights reserved.</p>
+        <div class="footer-bottom-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
